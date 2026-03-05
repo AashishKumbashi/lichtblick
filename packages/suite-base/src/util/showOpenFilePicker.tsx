@@ -23,7 +23,7 @@ function isShowOpenFilePickerSupported(): boolean {
 async function showOpenFilePickerFallback(
   options?: OpenFilePickerOptions,
 ): Promise<FileSystemFileHandle[] /* foxglove-depcheck-used: @types/wicg-file-system-access */> {
-  return new Promise((resolve) => {
+  return await new Promise((resolve) => {
     const input = document.createElement("input");
     input.type = "file";
     input.multiple = options?.multiple ?? false;
